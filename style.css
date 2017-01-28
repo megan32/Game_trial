@@ -8,8 +8,41 @@ body{
 
 }
 
-#container{
-  height: 300px;
-  width: 400px;
+.container{
+  height: 400px;
+  width: 500px;
   background-color: #2EDFC7;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 0px 0px #a6a6a6;
+  position: relative;
+}
+
+#score{
+  background-color: #FFC23C;
+  color: black;
+  position: absolute;
+  padding: 10px;
+  left: 450px;
+  box-shadow: 0px 4px 0px 0px #a6a6a6;
+
+}
+
+#correct{
+  position: absolute;
+  left: 230px;
+  background-color: #FF4C43;
+  color: white;
+  padding: 10px;
+  display: none;
+}
+
+#Wrong{
+  position: absolute;
+  left: 230px;
+  background-color: #FF4C43;
+  color: white;
+  padding: 10px;
+  display: none; 
 }
