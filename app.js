@@ -18,7 +18,7 @@ function(){
    document.getElementById('scoreValue').innerHTML = score;
           //show countdown
   show("timeRemaining");
-       timeRemaining = 5;
+       timeRemaining = 60;
        document.getElementById("timeRemainingValue").innerHTML = timeRemaining;
           //hide game over box
   hide("gameOver");
@@ -36,21 +36,39 @@ function(){
 
 }
 
+//choosing an answer
 
+for(i=1; i<5; i++){
+    document.getElementById("box"+i).onclick = function(){
+    //check if we are playing
+    if(playing == true){//yes
+        if(this.innerHTML == correctAnswer){
+        //correct answer
 
-              //yes -continue
-                  //no -gameover
-        //change button to reset
-        //generate new Q&As
-//if we click on answer box
-      //if we are playing
-        //correct?
-            //yes
-                //increase score by 1
-                //show correct pop-up box for 1 second
-                //generate new question and answers
-          //Wrong
-                //show Try-Again for one second
+            //increase score by 1
+            score++;
+            document.getElementById("scoreValue").innerHTML = score;
+            //hide Wrong box and show correct box
+            hide("Wrong");
+            show("Correct");
+            setTimeout(function(){
+                hide("Correct");
+            }, 1000);
+
+            //Generate new Q&A
+
+            generateQandA();
+        }else{
+        //Wrong answer
+            hide("Correct");
+            show("Wrong");
+            setTimeout(function(){
+                hide("Wrong");
+            }, 1000);
+        }
+    }
+}
+}
 
                 function startCountdown(){
                   action = setInterval(function(){
@@ -61,8 +79,8 @@ function(){
                           show("gameOver");
                        document.getElementById("gameOver").innerHTML = "<p>Game over!</p><p>Your score is " + score + ".</p>";
                           hide("timeRemaining");
-                          hide("correct");
-                          hide("wrong");
+                          hide("Correct");
+                          hide("Wrong");
                           playing = false;
                           document.getElementById("startReset").innerHTML = "Start Game";
 
@@ -92,17 +110,17 @@ function generateQandA(){
  var correctPosition = 1+ Math.round(3*Math.random());
  document.getElementById("box" + correctPosition).innerHTML = correctAnswer; //fill random box w/ answer
 
-//fill others with wrong answers
+//fill others with Wrong answers
  var answers = [correctAnswer];
 
  for(i=1; i<5; i++){
      if(i != correctPosition) {
-         var wrongAnswer;
+         var WrongAnswer;
          do{
-             wrongAnswer = (1+ Math.round(9*Math.random()))*(1+ Math.round(9*Math.random())); //a wrong answer
-         }while(answers.indexOf(wrongAnswer)>-1)
-         document.getElementById("box"+i).innerHTML = wrongAnswer;
-         answers.push(wrongAnswer);
+             WrongAnswer = (1+ Math.round(9*Math.random()))*(1+ Math.round(9*Math.random())); //a Wrong answer
+         }while(answers.indexOf(WrongAnswer)>-1)
+         document.getElementById("box"+i).innerHTML = WrongAnswer;
+         answers.push(WrongAnswer);
      }
  }
 }
