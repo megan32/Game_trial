@@ -6,7 +6,7 @@ html{
 }
 
 body{
-
+font-family: sans-serif;
 }
 
 .container{
@@ -23,6 +23,8 @@ body{
 #score{
   background-color: #FFC23C;
   color: black;
+  font-weight: bold;
+  border-radius: 3px;
   position: absolute; /*positioning w/in container*/
   padding: 10px;
   left: 580px;
@@ -34,20 +36,20 @@ body{
 
 #correct{
   position: absolute;
-  left: 230px;
+  left: 220px;
   background-color: #FF4C43;
   color: white;
   padding: 10px;
-  display: none; /*hide the boxes until ready*/
+/*  display: none; /*hide the boxes until ready*/
 }
 
 #Wrong{
   position: absolute;
-  left: 230px;
+  left: 410px;
   background-color: #FF4C43;
   color: white;
   padding: 10px;
-  display: none;  /*hide the boxes until ready*/
+  /*display: none;  /*hide the boxes until ready*/
 }
 
 
@@ -60,7 +62,7 @@ body{
   border-radius: 5px;
   font-size: 100px;
   text-align: center;
-  font-family: cursive, sans-serif;
+  font-family: sans-serif;
   color:white;
 }
 
@@ -148,10 +150,11 @@ transition: all 0.2s;
 
 #timeRemaining{
   width: 190px;
-  padding: 10px;
+  padding: 8px;
   position: absolute;
   top: 423px;
   left: 450px;
+  text-align: center;
   background-color: #FFC23C;
   border-radius: 4px;
   box-shadow: 0px 4px rgba(0,0,0, 0.2);
