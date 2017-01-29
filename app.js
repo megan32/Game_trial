@@ -1,4 +1,5 @@
 
+
 var playing = false; /*webpage loads game is not running*/
 var score; /* no starting value on page load*/
 var action;
@@ -7,9 +8,9 @@ var correctAnswer;
 document.getElementById("startReset").onclick=
 function(){
  //if we are playing
- if (playing == true){
-          //reload page
-    location.reload(); /*tells whole page to reload*/
+ if(playing == true){
+        
+        location.reload(true); //tells whole page to reload
  } else {//if not playing
            //tell game that we are in playing mode
    playing = true;
@@ -70,23 +71,22 @@ for(i=1; i<5; i++){
 }
 }
 
-                function startCountdown(){
-                  action = setInterval(function(){
-                      timeRemaining -= 1;
-                      document.getElementById("timeRemainingValue").innerHTML = timeRemaining;
-                      if(timeRemaining == 0){// game over
-                          stopCountdown();
-                          show("gameOver");
-                       document.getElementById("gameOver").innerHTML = "<p>Game over!</p><p>Your score is " + score + ".</p>";
-                          hide("timeRemaining");
-                          hide("Correct");
-                          hide("Wrong");
-                          playing = false;
-                          document.getElementById("startReset").innerHTML = "Start Game";
-
-                      }
-                  }, 1000);
-              }
+function startCountdown(){
+    action = setInterval(function(){
+        timeRemaining -= 1;
+        document.getElementById("timeRemainingValue").innerHTML = timeRemaining;
+        if(timeRemaining == 0){// game over
+            stopCountdown();
+            show("gameOver");
+         document.getElementById("gameOver").innerHTML = "<p>Game over!</p><p>Your score is " + score + ".</p>";   
+            hide("timeRemaining");
+            hide("Correct");
+            hide("Wrong");
+            playing = false;
+            document.getElementById("startReset").innerHTML = "Start Game";
+        }
+    }, 1000);    
+}
 
   function stopCountdown(){ //stop the counter
     clearInterval(action);
@@ -124,3 +124,4 @@ function generateQandA(){
      }
  }
 }
+
